@@ -8,13 +8,12 @@
     <style>
       html {
         font-family: sans-serif;
-        color: #CCC;
         font-size: max(2vmax, 1.5em);
-        background: #000;
       }
 
       body {
         margin: 0 auto;
+        background: #000;
       }
 
       main {
@@ -24,10 +23,6 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
-      }
-
-      div {
-        background: #000;
       }
 
       @media (orientation: portrait) {
@@ -41,7 +36,7 @@
         max-height: 50vmin;
         max-width: min-content;
         padding: 2em;
-        transition: all .9s ease-in-out;
+        transition: all .9s ease-in-out, background 0s;
       }
       
       #second {
@@ -49,17 +44,17 @@
         overflow: hidden;
         opacity: 0;
         visibility: hidden;
-        transition: all .9s ease-in-out;
+        transition: all .9s ease-in-out, background 0s;
         text-align: center;
       }
 
-      img {
-        color: #FFF;
+      p {
+        color: #BBB;
       }
 
       a {
         text-decoration: none;
-        color: #CCC;
+        color: #BBB;
         transition: text-shadow .5s ease;
       }
 
