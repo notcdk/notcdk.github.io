@@ -8,7 +8,7 @@
     <style>
       html {
         font-family: sans-serif;
-        font-size: max(2vmax, 1.5em);
+        font-size: max(2vmax, 1.25em);
       }
 
       body {
@@ -23,6 +23,7 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
+        white-space: nowrap;
       }
 
       @media (orientation: portrait) {
@@ -35,17 +36,24 @@
         flex: 1;
         max-height: 50vmin;
         max-width: min-content;
-        padding: 3em;
+        padding: 2em;
         transition: all 0.9s ease-in-out, background 0s;
       }
 
-      #s {
+      .s {
         flex: 0.000001;
         overflow: hidden;
         opacity: 0;
         visibility: hidden;
         text-align: center;
         transition: all 0.9s ease-in-out, background 0s;
+      }
+
+      #cb:checked ~ .s {
+        flex: 2;
+        opacity: 1;
+        visibility: visible;
+        padding: 2em;
       }
 
       p {
@@ -62,34 +70,31 @@
         text-shadow: 0 0 10px #77f, 0 0 10px #77f, 0 0 10px #77f;
       }
     </style>
-    <script>
-      function r(i) {
-        let style = document.getElementById("s").style;
-        style.visibility = "visible";
-        style.opacity = "1";
-        style.flex = "2";
-        style.padding = "3em";
-        i.onclick = null;
-      }
-    </script>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/fontawesome.min.css"
+      integrity="sha512-8jdwayz5n8F2cnW26l9vpV6+yGOcRAqz6HTu+DQ3FtVIAts2gTdlFZOGpYhvBMXkWEgxPN3Y22UWyZXuDowNLA=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/brands.min.css"
+      integrity="sha512-AMDXrE+qaoUHsd0DXQJr5dL4m5xmpkGLxXZQik2TvR2VCVKT/XRPQ4e/LTnwl84mCv+eFm92UG6ErWDtGM/Q5Q=="
       crossorigin="anonymous"
     />
   </head>
   <body>
     <main>
+      <input type="checkbox" id="cb" hidden />
       <div id="f">
-        <img
-          src="avatar.svg"
-          alt="My avatar"
-          style="width: 50vmin; cursor: pointer"
-          onclick="r(this)"
-        />
+        <label for="cb"
+          ><img
+            src="avatar.svg"
+            alt="My avatar"
+            style="width: 50vmin; cursor: pointer"
+        /></label>
       </div>
-      <div id="s">
+      <div class="s">
         <p>
           <a href="https://steamcommunity.com/id/notcdk/"
             ><i class="fab fa-steam"></i> cdk</a
